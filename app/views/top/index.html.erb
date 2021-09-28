@@ -1,2 +1,11 @@
-<p>このページは発注者ホームです</p>
-<%= link_to "仮のボタンです","#",class:"btn btn-primary"%>
+<div class="topPage">
+  <div class="reservationWrapper">
+    <% @reservations.each do |reservation| %>
+      <div class="reservation">
+        <div class="reservation_header">
+          <h2 class="reservation_header_title"><%= reservation.title %></h2>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
