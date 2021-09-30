@@ -1,4 +1,6 @@
 class ReservationController < ApplicationController
+	before_action :set_reservation,only: %i(edit update)
+
 	def new
 		@reservation = Reservation.new
 	end
@@ -13,7 +15,6 @@ class ReservationController < ApplicationController
 	end
 
 	def edit
-		@reservation = Reservation.find_by(id:params[:id])
 	end
 
 	def update
@@ -28,5 +29,8 @@ class ReservationController < ApplicationController
 	private
 		def reservation_params
 			params.require(:reservation).permit(:title).merge(user: current_user)
+		end
+		def set_list
+			@list = List.find_by(id: params[:id])
 		end
 end
