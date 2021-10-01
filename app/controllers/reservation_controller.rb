@@ -30,7 +30,7 @@ class ReservationController < ApplicationController
 		def reservation_params
 			params.require(:reservation).permit(:title).merge(user: current_user)
 		end
-		def set_list
-			@list = List.find_by(id: params[:id])
+		def set_reservation
+			@reservation = Reservation.find_by(id: params[:id])
 		end
 end
