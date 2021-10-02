@@ -6,12 +6,12 @@ class ReservationController < ApplicationController
 	end
 	
 	def create
-		@reservation = Reservation.new(reservation_params)
-		if @reservation.save
-			redirect_to :root
-		else
-			render action: :new
-		end
+		 @reservation = Reservation.new(reservation_params)
+		 if @reservation.save
+		 	redirect_to :root
+		# else
+		# 	render action: :new
+		 end
 	end
 
 	def edit
@@ -19,7 +19,7 @@ class ReservationController < ApplicationController
 
 	def update
 		@reservation = Reservation.find_by(id:params[:id])
-		if @reservation.update_attributes(reservation_params)
+		if @reservation.update(reservation_params)
 			redirect_to :root
 		else
 			render action: :edit
