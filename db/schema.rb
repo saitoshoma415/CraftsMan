@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_24_142609) do
+ActiveRecord::Schema.define(version: 2021_10_04_133521) do
+
+  create_table "cards", force: :cascade do |t|
+    t.string "title", limit: 255, null: false
+    t.text "memo", limit: 1000
+    t.integer "reservation_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["reservation_id"], name: "index_cards_on_reservation_id"
+  end
 
   create_table "contractors", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -43,5 +52,6 @@ ActiveRecord::Schema.define(version: 2021_09_24_142609) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cards", "reservations"
   add_foreign_key "reservations", "users"
 end

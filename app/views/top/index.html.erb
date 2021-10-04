@@ -4,14 +4,24 @@
       <div class="reservation">
         <div class="reservation_header">
           <h2 class="reservation_header_title"><%= reservation.title %></h2>
-
-          <%# ==========ここから追加する========== %>
           <div class="reservation_header_action">
 					  <%= link_to content_tag(:i, '', class: 'fas fa-trash'), reservation, method: :delete, data: { confirm: "#{reservation.title}を削除して大丈夫ですか？" } %>
             <%= link_to(content_tag(:i, '', class: 'fas fa-pen'), edit_reservation_path(reservation)) %>
           </div>
-          <%# ==========ここまで追加する========== %>
-          
+        </div>
+				<div class="cardWrapper">
+					<% reservation.cards.each do |card| %>
+							<div class="card">
+								<h3 class="card_title"><%= card.title %></h3>
+								<% if card.memo.size > 0 %>
+									<div class="card_detail is-exist"><i class="fas fa-bars"></i></div>
+								<% end %>
+							</div>
+						<% end %>
+          <div class="addCard">
+            <i class="far fa-plus-square"></i>
+            <%= link_to "さらにカードを追加", new_reservation_card_path(reservation), class: "addCard_link" %>
+          </div>
         </div>
       </div>
     <% end %>
