@@ -1,5 +1,5 @@
 class ReservationController < ApplicationController
-	before_action :set_reservation,only: %i(edit update)
+	before_action :set_reservation,only: %i(edit update destroy)
 
 	def new
 		@reservation = Reservation.new
@@ -24,6 +24,11 @@ class ReservationController < ApplicationController
 		else
 			render action: :edit
 		end
+	end
+
+	def destroy
+		@reservation.destroy
+		redirect_to :root
 	end
 
 	private

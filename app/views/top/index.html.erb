@@ -7,6 +7,7 @@
 
           <%# ==========ここから追加する========== %>
           <div class="reservation_header_action">
+					  <%= link_to content_tag(:i, '', class: 'fas fa-trash'), reservation, method: :delete, data: { confirm: "#{reservation.title}を削除して大丈夫ですか？" } %>
             <%= link_to(content_tag(:i, '', class: 'fas fa-pen'), edit_reservation_path(reservation)) %>
           </div>
           <%# ==========ここまで追加する========== %>
