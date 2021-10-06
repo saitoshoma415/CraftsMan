@@ -18,6 +18,8 @@ class CardController < ApplicationController
 		end
 
 		def edit
+			@reservations = List.where(user: current_user)
+
 		end
 
 		def update
