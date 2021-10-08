@@ -34,6 +34,9 @@ class CardController < ApplicationController
 			@card.destroy
 			redirect_to :root
 		end
+
+		def add_index :table_name, :column_name, options: "custom_index_name"
+		#Ex:- add_index("admin_users", "username")
 	
 		private
 			def card_params
