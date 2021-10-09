@@ -38,6 +38,11 @@ class CardController < ApplicationController
 		def add_index :table_name, :column_name, options: "custom_index_name"
 		#Ex:- add_index("admin_users", "username")
 	
+		def edit
+			@reservation = First.find(params:id => 
+			)
+		end
+		
 		private
 			def card_params
 				params.require(:card).permit(:title, :memo, :reservation_id)
