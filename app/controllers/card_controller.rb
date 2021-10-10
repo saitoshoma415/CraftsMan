@@ -34,15 +34,11 @@ class CardController < ApplicationController
 			@card.destroy
 			redirect_to :root
 		end
-
-		def add_index :table_name, :column_name, options: "custom_index_name"
+		
+		def add_index :
+			, :column_name, options: "custom_index_name"
 		#Ex:- add_index("admin_users", "username")
 	
-		def edit
-			@reservation = First.find(params:id => 
-			)
-		end
-		
 		private
 			def card_params
 				params.require(:card).permit(:title, :memo, :reservation_id)
