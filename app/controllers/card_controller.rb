@@ -35,9 +35,10 @@ class CardController < ApplicationController
 			redirect_to :root
 		end
 		
-		def add_index :
-			, :column_name, options: "custom_index_name"
-		#Ex:- add_index("admin_users", "username")
+		def index 
+			@reservation.index
+			redirect_to
+		end
 	
 		private
 			def card_params
