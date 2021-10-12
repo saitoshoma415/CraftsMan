@@ -35,9 +35,10 @@ class CardController < ApplicationController
 			redirect_to :root
 		end
 		
-		def index 
-			@reservation.index
-			redirect_to
+		def index
+			if @reservation.index
+				redirect_to :root
+			end
 		end
 	
 		private
