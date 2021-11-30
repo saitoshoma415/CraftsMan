@@ -15,6 +15,7 @@ class CardController < ApplicationController
 		end
 
 		def show
+			rener 'top'
 		end
 
 		def edit
