@@ -32,7 +32,6 @@ class CardController < ApplicationController
 		end
 
 		def destroy
-			rendar 'top'
 			@card.destroy
 			redirect_to :root
 		end
